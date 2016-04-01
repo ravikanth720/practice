@@ -22,17 +22,6 @@ public class ArrayExamples {
 		}
 		return arr;
 	}
-	public ArrayList<Integer> calculateWindow(ArrayList<Integer> list, int w){
-		ArrayList<Integer> res = new ArrayList<Integer>();
-		int count =0;
-		int min = Integer.MAX_VALUE;
-		for(int i=0; i<list.size(); i++){
-			
-			if(list.get(i)<min){
-				res.add()
-			}
-		}
-	}
 	
 	public static void main(String[] args) {
 		ArrayExamples obj =  new ArrayExamples();

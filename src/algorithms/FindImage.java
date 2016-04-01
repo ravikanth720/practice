@@ -23,7 +23,9 @@ public class FindImage {
 			}else{
 				int n = ft.getLevel() - count;
 				for(int j=0; j<n;j++){
+					
 					int mf = ft.getMf();
+					System.out.println(ft.getName() + " --- "+mf);
 					ft = stk.pop();
 					ft.setMf(ft.getMf()+mf);
 				}
@@ -31,8 +33,8 @@ public class FindImage {
 				ft.getChilds().add(node);
 			}
 			if(inp[i].trim().matches("^[a-zA-Z0-9]*[.](jpg|png)$")){
-				node.setMf(node.getMf()+1);
-				ft.setMf(node.getMf()+ft.getMf());
+				//node.setMf(node.getMf()+1);
+				ft.setMf(1);
 			}	
 		}
 		//root.print();

@@ -4,7 +4,6 @@ import java.util.Queue;
 
 public class Scheduling {
 	
-
 	public float waitingTimeRobin(int[] jobArr, int[] rt, int q, int n){
 		
 		while(n>0){
@@ -13,23 +12,36 @@ public class Scheduling {
 			int i =1;
 			int idletime = 0;
 			float waittime = 0;
+			Job pendingJob = null;
 			waitQ.add(new Job(jobArr[0], rt[0]));
-			while(i<n){
+			while(i<n || !waitQ.isEmpty()){
 				
 				while(i<n && jobArr[i] <= totalTime){
 					waitQ.add(new Job(jobArr[i], rt[i]));
 					i++;
 				}
+				if(pendingJob != null){
+					waitQ.add(pendingJob);
+				}
 				if(!waitQ.isEmpty()){
 					Job currJob = waitQ.poll();
-					currJob.rt -= q;
+					//System.out.println("CurrentJob AT = "+currJob.at);
+					//System.out.println("CurrentJob RT = "+currJob.rt);
+					currJob.rt = currJob.rt - q;
 					
 					if(currJob.rt > 0){
-						waitQ.add(currJob);
+						pendingJob = currJob;
 						totalTime += q; 
-					}else{ 
+					}else{
+						pendingJob = null;
 						totalTime += q + currJob.rt;
 						waittime += totalTime - currJob.at - currJob.ort;
+						//System.out.println();
+						//System.out.println("Arrival Time ==> "+currJob.at);
+						//System.out.println("Run Time ==> "+currJob.rt);
+						//System.out.println("waitTime == "+waittime);
+						//System.out.println("totalTime == "+totalTime);
+						//System.out.println();
 					}
 				}else{
 					if(i<n){
@@ -39,7 +51,6 @@ public class Scheduling {
 				}
 			}
 			System.out.println("idletime = "+idletime);
-			
 			System.out.println("total time = "+totalTime);
 			System.out.println("waittime time = "+waittime);
 			return (waittime)/n;
@@ -61,8 +72,8 @@ public class Scheduling {
 	
 	public static void main(String[] args) {
 		Scheduling s = new Scheduling();
-		int[] rt = {3, 2, 4, 3, 2};
-		int[] at = {1, 1, 7, 11, 14};
+		int[] rt = {3, 4, 1, 3, 1};
+		int[] at = {0, 2, 4, 5, 10};
 		System.out.println(s.waitingTimeRobin(at, rt, 3, 5));
 	}
 }

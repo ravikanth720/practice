@@ -19,15 +19,15 @@ import dsimpl.LinkedList;
 public class Main {
 
 	public static void main(String[] args) {
-		//FindImage fi = new FindImage();
-		//fi.imagesPathLength("dir1\n dir11\n dir12\n  pic.png\n  img1.png\ndir2\n img2.png");
+		FindImage fi = new FindImage();
+		fi.imagesPathLength("dir1\n dir11\n dir12\n  pic.png\n  img1.png\ndir2\n img2.png");
 		
-		Distance d = new Distance();
-		d.input();
-		
-		Main m = new Main();
-		//m.reverseHalf();
-		m.amazonDebug();
+//		Distance d = new Distance();
+//		d.input();
+//		
+//		Main m = new Main();
+//		//m.reverseHalf();
+//		m.amazonDebug();
 	}
 
 	private void amazonDebug() {

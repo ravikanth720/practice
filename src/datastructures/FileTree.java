@@ -58,8 +58,9 @@ public class FileTree {
 			for(FileTree child: this.childs){
 				len += child.getImagePathLength();
 			}
-		if(this.level > 1)//Add a / before new level
-			len +=1;		
+		if(this.level > 1 && len > 0)//Add a / before new level
+			len +=1;
+		System.out.println(this.name+" = "+len+" mf = "+this.mf);
 		return len;
 	}
 }
