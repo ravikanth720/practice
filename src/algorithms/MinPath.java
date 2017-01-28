@@ -1,4 +1,3 @@
-package algorithms;
 
 public class MinPath {
 	
@@ -7,7 +6,7 @@ public class MinPath {
 		if(root == null){
 			return 0;
 		}
-		minPath = findMinPath1(root, 0, minPath);
+		minPath = findMinPath(root, 0, minPath);
 		
 		return minPath;
 	}

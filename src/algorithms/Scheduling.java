@@ -1,4 +1,4 @@
-package algorithms;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -25,8 +25,6 @@ public class Scheduling {
 				}
 				if(!waitQ.isEmpty()){
 					Job currJob = waitQ.poll();
-					//System.out.println("CurrentJob AT = "+currJob.at);
-					//System.out.println("CurrentJob RT = "+currJob.rt);
 					currJob.rt = currJob.rt - q;
 					
 					if(currJob.rt > 0){
@@ -36,12 +34,6 @@ public class Scheduling {
 						pendingJob = null;
 						totalTime += q + currJob.rt;
 						waittime += totalTime - currJob.at - currJob.ort;
-						//System.out.println();
-						//System.out.println("Arrival Time ==> "+currJob.at);
-						//System.out.println("Run Time ==> "+currJob.rt);
-						//System.out.println("waitTime == "+waittime);
-						//System.out.println("totalTime == "+totalTime);
-						//System.out.println();
 					}
 				}else{
 					if(i<n){
@@ -50,9 +42,6 @@ public class Scheduling {
 					}
 				}
 			}
-			System.out.println("idletime = "+idletime);
-			System.out.println("total time = "+totalTime);
-			System.out.println("waittime time = "+waittime);
 			return (waittime)/n;
 		}
 		return 0;

@@ -1,4 +1,3 @@
-package algorithms;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,6 +6,9 @@ import java.util.PriorityQueue;
 import datastructures.Point;
 
 public class Distance {
+  public static class Point {
+    
+  }
 	public void kClosest(ArrayList<Point> points, int k){
 		Comparator<Point> pointComparator = new PointComparator();
 		PriorityQueue<Point> pQ = new PriorityQueue<Point>(new Comparator<Point>(){

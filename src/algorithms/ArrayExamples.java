@@ -1,7 +1,8 @@
-package algorithms;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.*;
 
 public class ArrayExamples {
 	public int[] cellCompetition(int[] arr, int days){
@@ -23,9 +24,31 @@ public class ArrayExamples {
 		return arr;
 	}
 	
+	public int kMin(int[] arr, int k) {
+	  Queue<Integer> pq = new PriorityQueue<Integer> (new Comparator<Integer>(){
+	    public int compare(Integer a, Integer b) {
+	      return b - a;
+	    }
+	  });
+	  
+	  for (int i=0; i<arr.length; i++) {
+	    if(k > i) {
+	      pq.add(arr[i]);
+	    } else {
+	      if(pq.peek() > arr[i]) {
+	        pq.poll();
+	        pq.add(arr[i]);
+	      }
+	    }
+	  }
+	  return pq.peek();
+	}
+	
 	public static void main(String[] args) {
 		ArrayExamples obj =  new ArrayExamples();
 		int[] arr = {1,1,1,0,1,1,1,1};
-		obj.cellCompetition(arr, 2);
+		//obj.cellCompetition(arr, 2);
+		System.out.println(obj.kMin(new int[]{2,8,3,5,10,9,12,11},5));
+		System.out.println("lot".compareTo("lot"));
 	}
 }

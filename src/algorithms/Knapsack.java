@@ -1,4 +1,4 @@
-package algorithms;
+import java.util.*;
 
 public class Knapsack {
 	
@@ -21,8 +21,10 @@ public class Knapsack {
 	}
 
     public static void main(String[] args) {
-        int N = Integer.parseInt(args[0]);   // number of items
-        int W = Integer.parseInt(args[1]);   // maximum weight of knapsack
+        System.out.println("Enter number of items and capacity of knapsack");
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int W = sc.nextInt();
 
         int[] profit = new int[N+1];
         int[] weight = new int[N+1];
